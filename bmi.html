@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        h1 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        h2 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        p {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <h2>Enter your weight and height below to check your BMI results</h2>
+    <form>
+        <p>Put your weight in here (KG)</p>
+        <input type="number" id="wt">
+        <p>And your height in here (CM)</p>
+        <input type="number" id="ht"><br><br>
+        <button>Calculate BMI</button>
+        <div>
+            <p id="result"></p>
+        </div>
+    </form>
+</body>
+<script>
+    
+    let btn = document.querySelector('button');
+    btn.addEventListener("click", function(e) {
+        e.preventDefault();
+        let weight = document.querySelector("#wt");
+        let height = document.querySelector("#ht");
+
+        let bmi = +weight.value / (+height.value/100 * +height.value/100); // 80/170
+        let result = document.querySelector("#result");
+        
+        result.innerText = bmi;
+        let output;
+        if (bmi <= 18.4) {
+            output = "Under Weight";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            output = "Normal Weight";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            output = "Overweight";
+        } else if (bmi >= 30) {
+            output = "Obese";
+        }
+    
+    
+    
+        result.innerText=("Your BMI is " + bmi + " which means you are " + output);
+    })
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
